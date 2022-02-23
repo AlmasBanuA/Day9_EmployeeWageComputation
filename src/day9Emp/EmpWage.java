@@ -1,45 +1,29 @@
 package day9Emp;
 
 /*
- * Add Part time Employee & Wage
- */
-
-// import random class
-import java.util.Random;
-
-class EmpWageComputation {
-	Random rand = new Random();
-	public int isPresent = 1;
-	public int isAbsent = 2;
-	public int isPartTime = 3;
-	public int wagePerHr = 20;
-	public int fullDayHr = 8;
-	public int partTimeHr = 4;
-	public int dailyWage;
-
-	public void present() {
-		int check = rand.nextInt(3) + 1;
-		if (check == isAbsent) {
-			System.out.println("Employee is absent.");
-
-		} else if (check == isPresent) {
-			System.out.println("Employee is present.");
-			dailyWage = wagePerHr * fullDayHr;
-			System.out.println("Wage of the day is : " + dailyWage);
-		} else {
-			System.out.println("Employee is present part time .");
-			dailyWage = wagePerHr * partTimeHr;
-			System.out.println("Wage of the day is " + dailyWage);
-		}
-	}
-}
-
-public class EmpWage {
-
-	public static void main(String[] args) {
-		System.out.println("Welcome To Employee Wage Computation");
-		EmpWageComputation empWage = new EmpWageComputation();
-		empWage.present();
-	}
-
+* Add Part time Employee & Wage
+*/
+public class EmpWageComputation {
+public static final int EMP_FULL_TIME_HOUR = 1;
+public static final int EMP_PART_TIME_HOUR = 2;
+public static final int EMP_WAGE_PER_HOUR = 20;
+public static void main(String[] args)
+    {
+    	int empHours;
+        int empCheck = (int) (Math.floor(Math.random()*10)%3);
+        if ( empCheck == EMP_FULL_TIME_HOUR ){
+            empHours = 8;
+            System.out.println("Employee is Present");
+        }
+        else if ( empCheck == EMP_PART_TIME_HOUR ){
+            empHours = 4;
+            System.out.println("Employee is Part time present");
+        }
+        else {
+            empHours = 0;
+            System.out.println("Employee is Absent");
+        }
+        int empWage = (EMP_WAGE_PER_HOUR * empHours);
+        System.out.println("Employee Wage = " + empWage);  
+    }
 }
