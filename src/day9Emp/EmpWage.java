@@ -3,7 +3,7 @@ package day9Emp;
 /*
  * checking employee is present or not
  */
-public class Employee_wage {
+public class EmpWageComputation {
 	    public static void main(String[] args)
 	    {
 	        int empCheck = (int)(Math.floor(Math.random()*10)%2);
