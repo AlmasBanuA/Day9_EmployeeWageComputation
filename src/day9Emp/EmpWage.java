@@ -1,52 +1,24 @@
 package day9Emp;
 
 /*
- * Check Employee is Present or Absent
- */
-
-// import random class
-import java.util.Random;
-
-class EmpWageComputation {
-	Random rand = new Random();
-	public int isPresent = 1;
-	public int isAbsent = 2;
-	public int wagePerHr = 20;
-	public int fullDayHr = 8;
-	int check = rand.nextInt(2) + 1;
-
-	/*
-	 * boolean method to return true or false
-	 */
-	public boolean present() {
-		if (check == isAbsent) {
-			System.out.println("Employee is absent.");
-			return false;
-		} else {
-			System.out.println("Employee is present.");
-			return true;
-		}
-	}
-
-	/*
-	 * Calculating Daily Employee Wage
-	 */
-
-	public void dailyWage() {
-		if (present()) {
-			int dailyWage = wagePerHr * fullDayHr;
-			System.out.println("Wage of the day of employee is : " + dailyWage);
-		}
-	}
-}
-
-public class EmpWage {
-
-	public static void main(String[] args) {
-		System.out.println("Welcome To Employee Wage Computation");
-		EmpWageComputation empWage = new EmpWageComputation();
-		empWage.present();
-		empWage.dailyWage();
-	}
-
+* Calculate Daily Employee Wage
+*/
+public class EmpWageComputation
+	
+public static final int EMP_WAGE_PER_HOUR = 20;
+public static void main(String[] args)
+    {
+        int empHours;
+        int empCheck = (int) (Math.floor(Math.random()*10)%2);
+        if ( empCheck == 1 ){
+            empHours = 8;
+            System.out.println("Employee is Present");
+        }
+        else {
+            empHours = 0;
+            System.out.println("Employee is Absent");
+        }
+        int empWage = (EMP_WAGE_PER_HOUR * empHours);
+        System.out.println("Employee Daily Wage : " + empWage);
+    }
 }
